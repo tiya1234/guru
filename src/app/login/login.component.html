@@ -1,0 +1,48 @@
+<section>
+  <div class="login-page">
+    <div class="login-innner-page">
+      <div class="login-left">
+        <img src="/assets/logo/lgs.png" alt="" />
+      </div>
+      <div class="login-right">
+        <div class="col-md-12 login-right-top">
+          <h4>Welcome to</h4>
+          <h1>Lakhera Global Services</h1>
+        </div>
+        <div class="col-md-12 login-right-bottom">
+          <form [formGroup]="form">
+          <div class="a3">
+            <button class="btn" style="display: flex; justify-content: center; align-items: center" >
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <input type="text" formControlName="username" placeholder="Username" />
+            </button>
+          </div>
+          <div class="a3">
+            <button class="btn" style="display: flex; justify-content: center; align-items: center">
+              <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+              <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+            </button>
+          </div>
+          <div class="login-right-bottom-check">
+            <div>
+              <input type="checkbox" name="remember" /><span
+                style="padding-right: 10px; color: blue"
+              >
+                Remember me
+              </span>
+            </div>
+            <div>
+              <p style="color: red">Forgot Password</p>
+            </div>
+          </div>
+          <button class="login-btn" (click)="submit()">Login</button>
+          <p class="login-right-bottom-registar">
+            Don't have an account ? <span style="color: red">Register</span>
+          </p>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

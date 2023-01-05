@@ -1,0 +1,149 @@
+<app-navbar></app-navbar>
+
+<app-sidebar></app-sidebar>
+<div class="main">
+    <div class="dashboard" style="margin-top: 100px;">
+        <ul>
+            <li>
+                <h5>Dashboard</h5>
+            </li>
+            <!-- <li><a href=""><i class="fa fa-bars" aria-hidden="true">&nbsp;&nbsp;<i
+                            class="fa-solid fa-chevron-down"></i></i></a>
+            </li> -->
+        </ul>
+    </div>
+    <div class="button-text">
+
+        <button type="button" class="btn active" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            data-bs-whatever="@mdo"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Counsellor&nbsp;&nbsp;</button>
+                &nbsp;
+                <button  type="button"  class="btn  active1" a routerLink="/admission" ><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;View the
+                    admissions&nbsp;&nbsp;</button>
+                    
+            &nbsp;
+        <button type="button" class="btn  active1" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            data-bs-whatever="@getbootstrap">&nbsp;&nbsp; Upload the
+            Required
+            File &nbsp; &nbsp; </button> 
+        <!-- <button type="button" class="btn  active2">...</button> -->
+
+        <div class="adminssion_count">
+            <span class="key">Total Counsellor : </span><span class="value">{{count}}</span>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" *ngIf="!formJSON.isEdit">Add Counsellor Name</h5>
+                        <h5 class="modal-title" *ngIf="formJSON.isEdit">Edit Counsellor Name</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Name</label>
+                                <input type="text" class="form-control" name="counsellorName" [(ngModel)]="formJSON.counsellorName" placeholder="Name" id="recipient-name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Email</label>
+                                <input type="text" class="form-control" name="email" [(ngModel)]="formJSON.email" placeholder="Email" id="recipient-name">
+                            </div>
+                          
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Mobile No</label>
+                                <input type="number" class="form-control" name="mobileNo" [(ngModel)]="formJSON.mobileNo" placeholder="Mobile No" id="recipient-name">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn active5" *ngIf="!formJSON.isEdit" (click)="submitData()">Add</button>
+                        <button type="button" class="btn active5" *ngIf="formJSON.isEdit" (click)="updateRec()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="student_text">
+        <ul>
+            <li>
+                <h5>Admissions List&nbsp;&nbsp;<i class="fa fa-info-circle" aria-hidden="true"></i></h5>
+            </li>
+             <li><a class="show" href="">Show</a></li>
+        </ul>
+        <hr>
+    </div>
+    <div style="overflow-x:auto;">
+       
+  <table>
+    <tr>
+        <td>Sr. No</td>
+        <td>Counsellor Name</td>
+        <td>Email</td>
+        
+        <td>Mobile No</td>
+        <td>Action</td>
+    </tr>
+    <tr *ngFor="let counsRec of counsellorData| paginate:{
+        id:'list_pagination',
+        itemsPerPage:10,
+        currentPage:page,
+        totalItems:totalRecords
+    };let cousIndex=index ">
+        <td>{{(page-1)*10+cousIndex+1}}</td>
+      <td>{{counsRec.counsellor.counsellorName}}</td>
+      <td>{{counsRec.email}}</td> 
+      <td>{{counsRec.mobileNo}}</td>
+      <td><i class="fa fa-pencil-square-o" aria-hidden="true" data-bs-toggle="modal"
+        data-bs-target="#exampleModal" (click)="editCourse(counsRec)"></i>
+        <i class="fa fa-trash-o  mr-5" aria-hidden="true" data-bs-toggle="modal"
+        data-bs-target="#delete_department" (click)="getId(counsRec.id)">
+    </i>
+     
+    </td>
+    </tr>
+
+  </table>
+  <div class="col-lg-12 col-md-12 col-sm-12 mt-3 text-left">
+    <div class="pagination-area">
+        <pagination-controls id="list_pagination" (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
+</div>
+
+      <!-- Delete Department Modal -->
+<div class="modal custom-modal fade" id="delete_department" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body" style="text-align:center">
+                <div class="form-header">
+                    <i class="fa fa-exclamation-circle" aria-hidden="true" style=" font-size: 42px; text-align:center;color: red"></i>
+                    <h3>Delete Counsellor Name</h3>
+                    <p>Are you sure want to delete?</p>
+
+                </div>
+                <div class="modal-btn delete-action">
+                    <div class="row">
+                        <div class="col-6">
+                            <a  class="btn btn-primary continue-btn"
+                                style="width: 100%;" (click)="deleteRec()">Delete</a>
+                        </div>
+                        <div class="col-6">
+                            <a  data-bs-dismiss="modal"
+                                class="btn btn-primary cancel-btn"style="width: 100%;">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+      
+      <br><br>
+      </div>
+
+      

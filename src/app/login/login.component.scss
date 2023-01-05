@@ -1,0 +1,127 @@
+.login-page{
+background-color: #fff;
+width: 50%;
+height: 100%;
+// padding: 1rem 14rem;
+}
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4rem;
+}
+*{
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+.login-innner-page{
+  background-color: rgb(4 4 64 / 93%);
+  width: 100%;
+height: auto;
+display: flex;
+flex-wrap: nowrap;
+justify-content: space-between;
+}
+.login-left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding-left: 1.5rem;
+}
+.login-right{
+  margin: 1rem;
+  background-color: #fff !important;
+  width: 70%;
+  height: auto;
+  border-radius: 10px;
+  border-color: blue;
+  border-style: ridge;
+}
+.login-right-top{
+  width: 100%;
+  height: auto;
+  margin: 1rem;
+  h4{
+    font-size: 1.5rem;
+  }
+  h1{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #16164d;
+
+  }
+}
+ .login-right-bottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // padding-top: 5rem;
+}
+.a3 {
+  border-radius: 5px;
+  width: 80%;
+  height: 3rem;
+  display: flex;
+  padding: 0px 10px;
+  background-color: rgb(22 22 77 / 12%);
+  margin-bottom: 10px;
+}
+.a3 a {
+  padding: 10px;
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+}
+.a3 input[type="text"] {
+  height: 25px;
+  width: 215px;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding-left: 2px;
+}
+.a3 input[type="password"] {
+  height: 25px;
+  width: 215px;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding-left: 2px;
+}
+.a3 i {
+  padding-right: 20px;
+}
+.login-right-bottom-check{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding-top: 10px;
+}
+.login-btn{
+  width: 60%;
+  background-color: rgb(173, 19, 19);
+}
+.login-btn{
+  width: 60%;
+  background-color: rgb(211 24 24);
+  height: 3rem;
+  border-radius: 7px;
+  border: none;
+  color: #fff;
+}
+.login-right-bottom-registar{
+  padding-top: 1.7rem;
+}
+@media  (max-width:1000px){
+  .login-page{
+  display: flex;
+  flex-direction: column;
+  }
+  .login-innner-page{
+    display: flex;
+    flex-direction: column;
+  }
+}

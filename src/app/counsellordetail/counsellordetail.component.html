@@ -1,0 +1,689 @@
+<app-navbar></app-navbar>
+
+<app-sidebar></app-sidebar>
+<div class="main">
+    <div class="dashboard" style="margin-top: 85px;">
+        <ul>
+            <li>
+                <h5>Dashboard</h5>
+            </li>
+            <!-- <li><a href=""><i class="fa fa-bars" aria-hidden="true">&nbsp;&nbsp;<i
+                            class="fa-solid fa-chevron-down"></i></i></a>
+            </li> -->
+        </ul>
+    </div>
+    <!-- Personal Detail -->
+    <div class="button-text">
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><i class="fa-solid fa-folder"></i>&nbsp;&nbsp;Add
+                            Personal Detail</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="recipient-name" class="col-form-label">Class RollNo</label>
+                                    <input type="text" class="form-control" name="rollNo" [(ngModel)]="formJSON.rollNo"
+                                        placeholder="Class Roll  No" id="recipient-name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="recipient-name" class="col-form-label">University RollNo</label>
+                                    <input type="text" class="form-control" name="uniRollNo"
+                                        [(ngModel)]="formJSON.uniRollNo" placeholder="University Roll No"
+                                        id="recipient-name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="recipient-name" class="col-form-label"> Batch</label>
+                                    <select class="form-control form-select" name="batch" [(ngModel)]="formJSON.batch">
+                                        <option value="Aug 2022">Aug 2022</option>
+                                        <option value="Jan 2022">Jan 2022</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="recipient-name" class="col-form-label">Candidate Name</label>
+                                    <input type="text" class="form-control" name="candidateName"
+                                        [(ngModel)]="formJSON.candidateName" placeholder="Candidate Name "
+                                        id="recipient-name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="recipient-name" class="col-form-label">Father Name</label>
+                                    <input type="text" class="form-control" name="fatherName"
+                                        [(ngModel)]="formJSON.fatherName" placeholder="Father Name "
+                                        id="recipient-name">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="recipient-name" class="col-form-label">Mother Name</label>
+                                    <input type="text" class="form-control" name="motherName"
+                                        [(ngModel)]="formJSON.motherName" placeholder="Mother Name" id="recipient-name">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="message-text" class="col-form-label">Date of Birth</label>
+                                    <input type="date" class="form-control" name="dateOfBirth"
+                                        [(ngModel)]="formJSON.dateOfBirth" id="recipient-name">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="message-text" class="col-form-label">Adhaar No</label>
+                                    <input type="text" class="form-control" name="aadhar" [(ngModel)]="formJSON.aadhar"
+                                        id="recipient-name">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn active5" (click)="personalDetail()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Personal Detail -->
+    <!-- Residential Detail -->
+    <div class="button-text">
+
+
+        <div class="modal fade" id="residentialDetail" tabindex="-1" aria-labelledby="residentialDetail"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="residentialDetail"><i class="fa-solid fa-folder"></i>&nbsp;&nbsp;Add
+                            Residentail Detail</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Select State</label>
+                                        <select class="form-control form-select" name="stateID"
+                                            [(ngModel)]="formJSON.stateID">
+                                            <option *ngFor="let stateRec of stateData" value="{{stateRec.stateId}}">
+                                                {{stateRec.stateName}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Select District</label>
+                                        <select class="form-control form-select" name="districtID"
+                                            [(ngModel)]="formJSON.districtID">
+                                            <option *ngFor="let distRec of districtData" value="{{distRec.districtid}}">
+                                                {{distRec.district_title}}</option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn active5" (click)="residentialDetail()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Residentail Detail -->
+    <!-- Contact info  -->
+    <div class="button-text">
+
+
+        <div class="modal fade" id="contactInfo" tabindex="-1" aria-labelledby="contactInfo" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactInfo"><i class="fa-solid fa-folder"></i>&nbsp;&nbsp;Add
+                            Contact Info</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Email Id</label>
+                                        <input type="text" class="form-control" name="emailId"
+                                            [(ngModel)]="formJSON.emailId" placeholder="(+91) 1234567890"
+                                            id="recipient-name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Contact No</label>
+                                        <input type="text" class="form-control" name="contact"
+                                            [(ngModel)]="formJSON.contact" placeholder="(+91) 1234567890"
+                                            id="recipient-name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Whats app No</label>
+                                        <input type="text" class="form-control" name="whatsAppNo"
+                                            [(ngModel)]="formJSON.whatsAppNo" placeholder="(+91) 1234567890"
+                                            id="recipient-name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Altenative Contact no</label>
+                                        <input type="text" class="form-control" name="alternativeContact"
+                                            [(ngModel)]="formJSON.alternativeContact" placeholder="(+91) 1234567890"
+                                            id="recipient-name">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn active5" (click)="contactDetail()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact Info -->
+
+    <!-- fees detail -->
+    <div class="button-text">
+
+
+        <div class="modal  fade" id="feesDetail" tabindex="-1" aria-labelledby="feesDetail" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="feesDetail"><i class="fa-solid fa-folder"></i>&nbsp;&nbsp;Add Fees
+                            Info</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                       
+                                        <div class="col-6">
+                                            
+                                            <input type="hidden" class="form-control" id="vehicle1" name="id" [(ngModel)]="feesDetail.id">
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="checkbox" id="vehicle1" name="installment" value="Bike">
+                                            <label class="checkbox_lbl" for="vehicle1">INSTALLMENT</label><br>
+                                        </div>
+
+                                        <div class="mb-3 col-md-6">
+                                            <label for="recipient-name" class="col-form-label"> Installment
+                                                Amount</label>
+                                            <input type="text" class="form-control" name="amount" id="recipient-name"
+                                                [(ngModel)]="feesDetail.amount">
+                                        </div>
+
+                                        <div class="mb-3  col-md-6">
+                                            <label for="message-text" class="col-form-label"> Installment
+                                                Date</label>
+                                                <input type="date" class="form-control" name="installmentDate"
+                                                [(ngModel)]="feesDetail.installmentDate" id="recipient-name">
+                                        </div>
+
+                                       
+                                        <div class="mb-3  col-md-6">
+                                            <label for="message-text" class="col-form-label">Deposit Bank Number</label>
+                                            <select name="bank" id="bankname" class="form-control form-select"
+                                                name="depositBankName" [(ngModel)]="feesDetail.depositBankName">
+                                                <option value="name">select deposite Bank name*</option>
+                                                <option value="Axis Bank">Axis Bank</option>
+                                                <option value="HDFC Bank">HDFC Bank</option>
+                                                <option value="Payment Gateway">Payment Gateway</option>
+                                                <option value="Hdfc payment Gateway">Hdfc payment Gateway
+                                                </option>
+                                                <option value="Axis Bank Payment Gatewa">Axis Bank Payment
+                                                    Gateway</option>
+                                                <option value="Axis QR">Axis QR</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3  col-md-6">
+                                            <label for="message-text" class="col-form-label">Reference
+                                                Number/UTR</label>
+                                            <input type="text" class="form-control" name="refrenceNumber"
+                                                id="recipient-name" [(ngModel)]="feesDetail.refrenceNumber">
+                                        </div>
+                                        <div class=" col-md-6">
+                                            <label for="message-text" class="col-form-label">Payment Snapshot</label>
+                                            <div class="col-md-12">
+                                                <input type='file' class="form-control" name="paymentSnapshot"
+                                                    [(ngModel)]="feesDetail.paymentSnapshot"
+                                                    (change)="getLogoUrl($event)" />
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="message-text" class="col-form-label">Optional Snapshot</label>
+                                            <div class="col-md-12">
+                                                <input type="file" id="inputPassword6" name="optionalSnapshot"
+                                                    class="form-control" (change)="getLogoUrl($event)" [(ngModel)]="feesDetail.optionalSnapshot" aria-describedby="passwordHelpInline">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn active5" *ngIf="feesDetail.isEdit" (click)="submitFeesDetail()">Add</button>
+                        <button type="button" class="btn active5"   *ngIf="!feesDetail.isEdit"(click)="updateFeesDetail()">Save</button>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fess detail -->
+
+    <!-- document detail -->
+    <div class="button-text">
+
+
+        <div class="modal fade" id="documentDetail" tabindex="-1" aria-labelledby="documentDetail" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="documentDetail"><i class="fa-solid fa-folder"></i>&nbsp;&nbsp;Add
+                            Document Info</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="row d-flex" style="margin-top: 30px;">
+                                        <div class="col-4">
+                                            <label for="inputPassword6" class="col-form-label">Student Photo</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="file" id="inputPassword6" class="form-control"
+                                                aria-describedby="passwordHelpInline" name="studentPhoto"
+                                                [(ngModel)]="documentDetail.studentPhoto" (change)="getLogoUrl($event)">
+
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex " style="margin-top: 30px;">
+                                        <div class="col-4">
+                                            <label for="inputPassword6" class="col-form-label">Aadhar Front</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="file" id="inputPassword6" class="form-control"
+                                                aria-describedby="passwordHelpInline" name="adhaarFront"
+                                                [(ngModel)]="documentDetail.adhaarFront" (change)="getLogoUrl($event)">
+
+                                        </div>
+                                    </div>
+                                    <div class="row d-flexr" style="margin-top: 30px;">
+                                        <div class="col-4">
+                                            <label for="inputPassword6" class="col-form-label">Aadhar Back</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="file" id="inputPassword6" class="form-control"
+                                                aria-describedby="passwordHelpInline" name="adhaarBack"
+                                                [(ngModel)]="documentDetail.adhaarBack" (change)="getLogoUrl($event)">
+
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex" style="margin-top: 30px;">
+                                        <div class="col-4">
+                                            <label for="inputPassword6" class="col-form-label">Photo 10th</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="file" id="inputPassword6" class="form-control"
+                                                aria-describedby="passwordHelpInline" name="tenthCertificate"
+                                                [(ngModel)]="documentDetail.tenthCertificate"
+                                                (change)="getLogoUrl($event)">
+
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex" style="margin-top: 30px;">
+                                        <div class="col-4">
+                                            <label for="inputPassword6" class="col-form-label">Another
+                                                Document</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="file" id="inputPassword6" class="form-control"
+                                                aria-describedby="passwordHelpInline" name="anotherPhoto"
+                                                [(ngModel)]="documentDetail.anotherPhoto" (change)="getLogoUrl($event)">
+
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex" style="margin-top: 30px;">
+                                        <div class="col-4">
+                                            <label for="inputPassword6" class="col-form-label">Signature</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="file" id="inputPassword6" class="form-control"
+                                                aria-describedby="passwordHelpInline" name="signature" 
+                                                [(ngModel)]="documentDetail.signature" (change)="getLogoUrl($event)">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn active5" (click)="submitDocumentData()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- document detail -->
+
+    <div class="student_text">
+        <ul>
+            <li>
+                <h5>Admissions List&nbsp;&nbsp;<i class="fa fa-info-circle" aria-hidden="true"></i></h5>
+            </li>
+            <!-- <li><a class="show" href="">Show</a></li> -->
+        </ul>
+        <hr>
+    </div>
+
+    <div class="container">
+        <div class="col-lg-11 box">
+            <div class="box-info">
+                <span class="icon-user">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                </span>
+                <span class="user-info">
+                    <ul>
+                        <li><b>{{admissionData?.candidateName}}</b></li>
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i><span>{{admissionData?.emailId}}</span>
+                        </li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><span>{{admissionData?.contact}}</span></li>
+                    </ul>
+
+
+                </span>
+
+            </div>
+            <hr>
+            <div class="row">
+
+                <mat-tab-group>
+                    <mat-tab label="Personal Detail">
+                        <div class="container">
+                            <div class="row">
+
+                            </div>
+
+                            <!-- Modal -->
+
+                            <div id="student_profile" class="pro-overview tab-pane fade show active mt-3">
+                                <div class="row">
+                                    <div class="col-md-6 d-flex">
+                                        <div class="card profile-box flex-fill">
+                                            <div class="card-body bg-light">
+                                                <h3 class="card-title">Personal Information <a class="edit-icon"
+                                                        aria-hidden="true" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal" (click)="openmodal()"><i
+                                                            class="fa fa-pencil"></i></a></h3>
+                                                <ul class="personal-info">
+                                                    <li>
+                                                        <div class="title">Batch:</div>
+                                                        <div class="text">{{admissionData?.batch}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Class RollNo:</div>
+                                                        <div class="text">{{admissionData?.rollNo}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">University RollNo:</div>
+                                                        <div class="text">{{admissionData?.uniRollNo}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Candidate Name:</div>
+                                                        <div class="text">{{admissionData?.candidateName}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Counsellor Name:</div>
+                                                        <div class="text">{{admissionData?.counsellorName}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Email Address:</div>
+                                                        <div class="text">{{admissionData?.emailId}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Father Name:</div>
+                                                        <div class="text">{{admissionData?.fatherName}}</div>
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="title">Mother Name:</div>
+                                                        <div class="text">{{admissionData?.motherName}}</div>
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="title">Adhaar No:</div>
+                                                        <div class="text">{{admissionData?.aadhar}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Date Of Birth:</div>
+                                                        <div class="text">{{admissionData?.dateOfBirth}}</div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /Profile Info Tab -->
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Contact Info">
+                        <div class="container">
+                            <div class="row" *ngIf="contactButton">
+
+                            </div>
+                            <div id="student_profile" class="pro-overview tab-pane fade show active mt-3">
+                                <div class="row">
+                                    <div class="col-md-6 d-flex">
+                                        <div class="card profile-box flex-fill">
+                                            <div class="card-body bg-light">
+                                                <h3 class="card-title">Contact Information <a class="edit-icon"
+                                                        aria-hidden="true" data-bs-toggle="modal"
+                                                        data-bs-target="#contactInfo" (click)="openmodal()"><i
+                                                            class="fa fa-pencil"></i></a></h3>
+                                                <ul class="personal-info">
+                                                    <li>
+                                                        <div class="title">Mobile No:</div>
+                                                        <div class="text">{{admissionData?.contact}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Alternate Number:</div>
+                                                        <div class="text">{{admissionData?.alternativeContact}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Whats App No:</div>
+                                                        <div class="text">{{admissionData?.whatsAppNo}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Email:</div>
+                                                        <div class="text">{{admissionData?.emailId}}</div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Residential Detail">
+                        <div class="container">
+
+                            <div id="student_profile" class="pro-overview tab-pane fade show active mt-3">
+                                <div class="row">
+                                    <div class="col-md-6 d-flex">
+                                        <div class="card profile-box flex-fill">
+                                            <div class="card-body bg-light">
+                                                <h3 class="card-title">Residentail Information <a class="edit-icon"
+                                                        aria-hidden="true" data-bs-toggle="modal"
+                                                        data-bs-target="#residentialDetail" (click)="openmodal()"><i
+                                                            class="fa fa-pencil"></i></a></h3>
+                                                <ul class="personal-info">
+                                                    <li>
+                                                        <div class="title">State:</div>
+                                                        <div class="text">{{admissionData?.stateModel?.stateName}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">District:</div>
+                                                        <div class="text">{{admissionData?.district?.districtName}}
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+
+                    <mat-tab label="Fess Detail">
+                        <div class="container">
+
+
+                            <div id="feesDetail" class="pro-overview tab-pane fade show active mt-3">
+                                <div class="row">
+                                    <h3 style="font-size:large;"><b>Fees Detail Information <button
+                                                class="btn btn-primary" aria-hidden="true" data-bs-toggle="modal"
+                                                data-bs-target="#feesDetail" (click)="openFeesModal()">Add new Installment</button></b></h3>
+                                    <div class="col-md-6 mt-3 d-flex"
+                                        *ngFor="let fesDetail of admissionData?.feesdetailModel,let i=index">
+                                        <div class="card profile-box flex-fill">
+                                            <div class="card-body bg-light">
+                                                <h3 class="card-title">Installment {{i+1}}<a class="edit-icon"
+                                                        aria-hidden="true" data-bs-toggle="modal"
+                                                        data-bs-target="#feesDetail"
+                                                        (click)="feesDetailId(fesDetail.id)"><i
+                                                            class="fa fa-pencil"></i></a></h3>
+                                                <ul class="personal-info">
+
+                                                    <li>
+                                                        <div class="title">Installemnt Date:</div>
+                                                        <div class="text">{{fesDetail?.installmentDate}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Amount:</div>
+                                                        <div class="text">{{fesDetail?.amount}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Deposite Bank Name:</div>
+                                                        <div class="text">{{fesDetail?.depositBankName}}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Payment SnapShot:</div>
+                                                        <div class="text"><i class="fa fa-picture-o" aria-hidden="true">
+                                                            <a href="{{fesDetail?.paymentSnapshot}}"></a>
+                                                        </i></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Optional SnapShot:</div>
+                                                        <div class="text"><i class="fa fa-picture-o" aria-hidden="true">
+                                                            <a href="{{fesDetail?.optionalSnapshot}}"></a>
+                                                        </i></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Document Detail">
+                        <div class="container">
+
+                            <div id="student_profile" class="pro-overview tab-pane fade show active mt-3">
+                                <div class="row">
+                                   <div class="col-md-6" *ngIf="show==true">
+                                    <button class="btn btn-primary mt-5"  data-bs-toggle="modal"
+                                    data-bs-target="#documentDetail" >Add Document Details</button>
+                                   </div>
+                                    <div class="col-md-6 d-flex" *ngIf="show==false">
+                                       
+                                        <div class="card profile-box flex-fill">
+                                            <div class="card-body bg-light">
+                                                <h3 class="card-title">Documents Detail <a class="edit-icon"
+                                                        aria-hidden="true" data-bs-toggle="modal"
+                                                        data-bs-target="#documentDetail" (click)="openmodal()"><i
+                                                            class="fa fa-pencil"></i></a></h3>
+                                                <ul class="personal-info">
+                                                    <li>
+                                                        <div class="title"><a
+                                                                href="{{admissionData?.documentModelRequest?.adhaarFront}}">Adhaar
+                                                                Front</a></div>
+                                                                <div class="text"><i class="fa fa-id-card-o" aria-hidden="true"></i></div>
+                                                            </li>
+                                                    <li>
+                                                        <div class="title"><a
+                                                                href="{{admissionData?.documentModelRequest?.adhaarBack}}">Adhaar
+                                                                Back</a></div>
+                                                                <div class="text"><i class="fa fa-id-card-o" aria-hidden="true"></i></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title"><a
+                                                                href="{{admissionData?.documentModelRequest?.studentPhoto}}">Student
+                                                                Photo </a></div>
+                                                                <div class="text"><i class="fa fa-file-image-o" aria-hidden="true"></i></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title"><a
+                                                            href="{{admissionData?.documentModelRequest?.tenthCertificate}}">Tenth Certificate  </a></div>
+                                                            <div class="text"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></div>
+                                                        </li>
+                                                    <li>
+                                                        <div class="title"><a
+                                                            href="{{admissionData?.documentModelRequest?.signature}}">Signature</a></div>
+                                                            <div class="text"><i class="fa fa-id-card-o" aria-hidden="true"></i></div>
+                                                        </li>
+                                                    <li>
+                                                        <div class="title"><a
+                                                            href="{{admissionData?.documentModelRequest?.anotherPhoto}}">Another Photo</a>
+                                                           </div>
+                                                            <div class="text"><i class="fa fa-picture-o" aria-hidden="true"></i></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Profile Info Tab -->
+
+
+</div>

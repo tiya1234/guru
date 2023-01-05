@@ -1,0 +1,274 @@
+.a3 {
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.a3 a {
+    padding: 10px;
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+}
+
+.a3 input[type="text"] {
+    height: 25px;
+    width: 215px;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding-left: 2px;
+}
+
+.a3 i {
+    padding-right: 20px;
+}
+
+.navbar-brand img {
+    height: 50px;
+    width: 80%;
+}
+
+.sidebar {
+    height: 100%;
+    width: 230px;
+    position: fixed;
+    z-index: 1;
+    background-color: rgb(237, 237, 237);
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+
+.sidebar a {
+    padding: 6px 8px 6px 25px;
+    text-decoration: none;
+    font-size: 16px !important;
+    color: rgb(74, 74, 74);
+    display: block;
+    background-color: rgb(237, 237, 237);
+}
+
+.sidebar a:hover {
+    color: #696363;
+}
+
+.sidebar i {
+    color: rgb(6, 2, 2);
+    ;
+}
+
+.sidebar i:hover {
+    color: black;
+}
+
+.sidebar .Privacy {
+    margin-top: 220px !important;
+}
+.sidebar .Privacy2 {
+    margin-top: 15px !important;
+}
+
+.sidebar .Privacy1 {
+    margin-top: 25px !important;
+}
+
+.sidebar .Privacy2:hover{
+    background-color: #696363;
+    color: #fff;  
+}
+.sidebar .Privacy2 i:hover{
+    color: #fff;  
+}
+.main {
+    margin-left: 236px;
+    padding: 0px 10px;
+}
+
+.dashboard ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin: 0;
+    padding: 20px 20px 0px 0px;
+}
+
+.button-text ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 20px 0px;
+}
+
+.button-text ul li {
+    padding-right: 20px;
+}
+
+.button-text ul li a {
+    text-decoration: none;
+    color: #696363;
+    background-color: #d7d0d0;
+    padding: 8px 14px;
+}
+
+.button-text .fa-folder {
+    color: rgb(127, 255, 255);
+}
+
+.button-text .active {
+    color: white !important;
+    background: rgb(1, 1, 82) !important;
+}
+
+.button-text .active1 {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.button-text .active2 {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.button-text .active3 {
+    height: 29px;
+    width: 35px;
+    font-size: 13px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(209, 209, 209);
+}
+
+.button-text .active1:hover {
+    color: white;
+    background: rgb(1, 1, 66);
+}
+
+.button-text .active2:hover {
+    color: white;
+    background: rgb(1, 1, 66);
+}
+
+.button-text .active5 {
+    color: white !important;
+    background: rgba(233, 16, 16, 0.925) !important;
+}
+
+.student_text ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin: 0;
+    padding: 20px 20px 0px 0px;
+}
+
+.student_text .show {
+    color: black;
+}
+
+.student_text .icons {
+    background: white !important;
+}
+
+// table {
+//     font-family: arial, sans-serif;
+//     border-collapse: collapse;
+//     width: 100%;
+// }
+
+// tr {
+//     padding-top: 20px;
+//     text-align: center;
+// }
+
+// td,
+// th {
+//     border-bottom: 1px solid #afaeae;
+//     text-align: center;
+//     padding: 8px;
+// }
+
+// .date {
+//     text-align: end;
+// }
+
+// .dcoument {
+//     height: 100px;
+// }
+// table {
+//     width: 100%;
+//   }
+//   table {
+//     width: 100%;
+//   }
+  
+//   .mat-mdc-form-field {
+//     font-size: 14px;
+//     width: 100%;
+//   }
+  
+//   td, th {
+//     width: 25%;
+//   }
+  
+tr{
+    td{
+        text-align: center;
+        i{
+            margin-right: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    }
+}
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 6px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+  .nav-link i{
+    font-size: 25px;
+  }
+
+
+
+
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+
+  .adminssion_count{
+    float: right;
+    margin-right: 20px;
+  }
+
+  .adminssion_count .key{
+    font-weight: bold;
+  }

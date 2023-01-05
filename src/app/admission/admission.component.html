@@ -1,0 +1,600 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-md-2" style="margin-top:40px">
+
+            <div class="row" style="margin-top:80px">
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a [routerLink]="['/home']" routerLinkActive="router-link-active">
+                            <button class=" btn btn-primary" style="margin-left: 85px;">
+                                <span>Home</span>
+
+                            </button></a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link tab_button active" #studentDetails id="pills-home-tab"
+                            data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab"
+                            aria-controls="pills-home" aria-selected="true">
+                            <span>STUDENT</span>
+                            <P>REGISTRATION</P>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link tab_button" #feeDetails id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false">
+                            <span>FEE</span>
+                            <P>DETAILS</P>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link tab_button" #documentDetails id="pills-contact-tab"
+                            data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab"
+                            aria-controls="pills-contact" aria-selected="false">
+                            <span>DOCUMENT</span>
+                            <P>DETAILS</P>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10" style="margin-top:80px">
+            <div class="row">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab">
+                        <div class="conatiner mt-5">
+                            <div col="row" style="display: flex; justify-content: center; align-items: center;">
+                                <div class="col-lg-10 col-md-10"
+                                    style="background-color: #f0efef; box-shadow: 0px 0px 8px -4px; margin: 0px -15px 0px 0px;">
+                                    <div class="col-lg-12">
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+
+                                            <!-- <label>Date of Registration<span>*</span></label> -->
+                                            <input type="hidden" name="dateOfRegistration"
+                                                [(ngModel)]="formJSON.dateOfRegistration">
+
+                                            <div class="col-4">
+                                                <label>Select Counsellor Name<span>*</span></label>
+                                                <select class="form-select form-control" name="counsellerId"
+                                                    [(ngModel)]="formJSON.counsellerId">
+                                                    <option selected>Select Counsellor Name</option>
+                                                    <option *ngFor="let counsRec of counsellorData"
+                                                        value="{{counsRec.id}}">{{counsRec.counsellorName}}</option>
+
+                                                </select>
+                                            </div>
+                                            <div class="col-4">
+                                                <label>Select Batch<span>*</span></label>
+                                                <select name="batch" [(ngModel)]="formJSON.batch" id="inputPassword6"
+                                                    class="form-control form-select">
+                                                    <option>Select Batch</option>
+                                                    <option value="Aug 2022">August 2022</option>
+                                                    <option value="Jan 2022">Jan 2022</option>
+                                                </select>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label>Candidate Name <span>*</span></label>
+                                                <input type="text" name="candidateName"
+                                                    [(ngModel)]="formJSON.candidateName" id="inputPassword6"
+                                                    class="select_input form-control">
+
+                                            </div>
+                                            <div class="col-4">
+                                                <label>Contact Number <span>*</span></label>
+                                                <input (blur)="validateContactNumber()" type="text" name="contact"
+                                                    [(ngModel)]="formJSON.contact" id="inputPassword6"
+                                                    class="select_input form-control" maxlength="10" minlength="10">
+                                                <div *ngIf="iscontacterror">
+                                                    <label style="color:rgb(209, 5, 5); position: absolute;"> This
+                                                        number is not valid</label>
+                                                </div>
+                                                
+                                                <div *ngIf="contactvalidationmassage">
+                                                    <label style="color:rgb(209, 5, 5); position: absolute;">{{contactvalidationmassage}}</label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label> Email ID</label>
+                                                <input type="text" name="emailId" [(ngModel)]="formJSON.emailId"
+                                                    id="inputPassword6" class="select_input form-control">
+                                            </div>
+                                            <div class="col-4">
+                                                <label>Father Name</label>
+                                                <input type="text" name="fatherName" [(ngModel)]="formJSON.fatherName"
+                                                    id="inputPassword6" class="select_input form-control">
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label>Mother Name</label>
+                                                <input type="text" name="motherName" [(ngModel)]="formJSON.motherName"
+                                                    id="inputPassword6" class="select_input form-control">
+
+                                            </div>
+                                            <div class="col-4">
+                                                <label>Date of birth</label>
+                                                <input type="date" name="dateOfBirth" [(ngModel)]="formJSON.dateOfBirth"
+                                                    id="inputPassword6" class="select_input form-control"
+                                                    placeholder="date of birth*">
+
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label>Adhaar Number</label>
+                                                <input type="text" name="aadhar" (blur)="validateAadharNmber()"
+                                                    [(ngModel)]="formJSON.aadhar" id="inputPassword6"
+                                                    class="select_input form-control" maxlength="14">
+
+                                                <div *ngIf="isaadharerror">
+                                                    <label style="color:rgb(209, 5, 5); position: absolute;"> This
+                                                        Aadhar number is not valid</label>
+                                                </div>
+                                                
+                                                <div *ngIf="aadharvalidationmassage">
+                                                    <label style="color:rgb(209, 5, 5); position: absolute;">{{aadharvalidationmassage}}</label>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-4">
+                                                <label>Alternate Number</label>
+                                                <input type="text" name="alternativeContact"
+                                                    [(ngModel)]="formJSON.alternativeContact" id="inputPassword6"
+                                                    class="select_input form-control" maxlength="10">
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label>Whatsapp Number</label>
+                                                <input type="text" name="whatsAppNo" [(ngModel)]="formJSON.whatsAppNo"
+                                                    id="inputPassword6" class="select_input form-control"
+                                                    maxlength="10">
+
+                                            </div>
+
+
+                                            <div class="col-4">
+                                                <!-- <label>Select State</label>
+                                                <select class="form-control form-select" name="stateID"
+                                                    [(ngModel)]="formJSON.stateID">
+                                                    <option *ngFor="let stateRec of stateData"
+                                                        value="{{stateRec.stateId}}">{{stateRec.stateName}}</option>
+                                                </select> -->
+
+                                                <mat-label>Select State</mat-label>
+
+                                                <mat-select #countrySelect>
+
+                                                    <mat-select-trigger>
+                                                        <div>{{countrySelect.value}}</div>
+                                                    </mat-select-trigger>
+
+                                                    <mat-option>
+                                                        <lib-mat-select-search [list]="stateData"
+                                                            [searchProperties]="[ 'stateName']"
+                                                            (filtered)="stateData = $event">
+                                                        </lib-mat-select-search>
+                                                    </mat-option>
+
+                                                    <mat-option *ngFor="let stateRec of stateData"
+                                                        value="{{stateRec.stateName}}"
+                                                        (click)="getDistrictByStateId(stateRec)">
+                                                        <div class="country-container">
+                                                            <span>{{stateRec.stateName}}</span>
+                                                        </div>
+                                                    </mat-option>
+
+                                                </mat-select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <!-- <label> Select District </label> -->
+                                                <!-- <select class="form-control form-select" name="districtID"
+                                                    [(ngModel)]="formJSON.districtID">
+                                                    <option *ngFor="let distRec of districtData"
+                                                        value="{{distRec.districtid}}">{{distRec.district_title}}
+                                                    </option>
+                                                </select> -->
+
+                                                <mat-label>Select District</mat-label>
+
+                                                <mat-select #countryDistrict class="select_district">
+
+                                                    <mat-select-trigger>{{countryDistrict.value}}</mat-select-trigger>
+
+                                                    <mat-option>
+                                                        <lib-mat-select-search [list]="districtData"
+                                                            [searchProperties]="[ 'district_title']"
+                                                            (filtered)="districtData = $event">
+                                                        </lib-mat-select-search>
+                                                    </mat-option>
+
+                                                    <mat-option *ngFor="let distRec of districtData"
+                                                        value="{{ distRec.district_title}}">
+                                                        <div class="country-container">
+                                                            <span>{{distRec .district_title}}</span>
+                                                        </div>
+                                                    </mat-option>
+
+                                                </mat-select>
+                                            </div>
+                                            <div class="col-4">
+                                                <button class="btn btn-primary mt-3 mb-3" style="float:right"
+                                                    (click)="submitData()" (click)="feeDetails.click()"
+                                                    [disabled]="!formJSON.contact || !formJSON.batch || (!formJSON.candidateName || formJSON.counsellerId[0] === '0' || formJSON.contact || formJSON.aadhar )">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="horizontal-rule">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12 list-text">
+                                                <h6> NOTE: </h6>
+
+                                                <p>1. Roll Number and Mobile number should be unique.</p>
+
+                                                <p>2. Registration is to be completed on university portal status.</p>
+
+                                                <p>3. Import the getting sheet from university and fill the pending
+                                                    data.
+                                                </p>
+
+                                                <p>4. View all the data using coloumn level selectionand filter and
+                                                    sort.
+                                                </p>
+
+                                                <p>5. Update</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="conatiner mt-5">
+                            <div col="row" style="display: flex; justify-content: center; align-items: center;">
+                                <div class="col-lg-10 col-md-10"
+                                    style="background-color:#f0efef; box-shadow: 0px 0px 8px -4px;">
+                                    <div class="col-lg-12">
+                                        <div *ngFor="let product of feeFormJSON; let qusIndex=index">
+                                            <div class="row" *ngIf="qusIndex > 0">
+                                                <div class="col-12">
+                                                    <button type="button" class="btn btn-default mr-5"
+                                                        style="float:right;margin-right:20px;background-color: rgb(209, 5, 5);color:white"
+                                                        (click)="removeQuestion($event,qusIndex)"><i class="fa fa-minus"
+                                                            aria-hidden="true"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex justify-content-center align-items-center"
+                                                style="margin-top: 30px;">
+
+
+                                                <div class="col-8">
+                                                    <!-- <input type="checkbox" id="vehicle1 " checked name="vehicle1" [checked]="product.installement"
+                                                        name="installement" [(ngModel)]="product.installement"
+                                                        (click)="getValue($any($event.target).value)"
+                                                        value="{{qusIndex+1}}"> -->
+                                                    <label class="checkbox_lbl " for="vehicle1"><i class="fa-solid fa-square-check"> &nbsp;</i> INSTALMENT
+                                                        {{qusIndex+1}}</label><br>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row d-flex justify-content-center align-items-center"
+                                                style="margin-top: 30px;">
+                                                <div class="col-4">
+                                                    <label>First Instalment</label>
+                                                    <input type="number" id="inputPassword6" name="amount"
+                                                        [(ngModel)]="product.amount" class="form-control">
+                                                </div>
+                                                <div class="col-4">
+                                                    <label>Date of Instalment</label>
+                                                    <input type="date" id="nowdate" name="installmentDate"
+                                                        [(ngModel)]="product.installmentDate" class="form-control"
+                                                        placeholder="first Installment date*">
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex justify-content-center align-items-center"
+                                                style="margin-top: 30px;">
+                                                <div class="col-4">
+                                                    <label>Select Deposite Method</label>
+                                                    <select name="bank" id="bankname" class="form-control form-select"
+                                                        name="depositBankName" [(ngModel)]="product.depositBankName">
+                                                        <option value="name">select deposite Bank name*</option>
+                                                        <option value="Axis Bank">Axis Bank</option>
+                                                        <option value="HDFC Bank">HDFC Bank</option>
+                                                        <option value="Payment Gateway">Payment Gateway</option>
+                                                        <option value="Hdfc payment Gateway">Hdfc payment Gateway
+                                                        </option>
+                                                        <option value="Axis Bank Payment Gatewa">Axis Bank Payment
+                                                            Gateway</option>
+                                                        <option value="Axis QR">Axis QR</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-4">
+                                                    <label>Reference Number</label>
+                                                    <input type="number" id="inputPassword6" class="form-control"
+                                                        name="refrenceNumber" [(ngModel)]="product.refrenceNumber">
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex justify-content-center align-items-center"
+                                                style="margin-top: 30px;">
+                                                <div class="col-4">
+                                                    <label for="inputPassword6" class="col-form-label">Payment
+                                                        Snapshot</label>
+                                                </div>
+                                                <div class="col-4">
+                                                    <input type='file' class="form-control" name="paymentSnapshot"
+                                                        [(ngModel)]="product.paymentSnapshot"
+                                                        (change)="getLogoUrl($event)" />
+
+                                                    <span id='val'></span>
+
+                                                    <span id='button'></span>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex justify-content-center align-items-center"
+                                                style="margin-top: 30px;">
+                                                <div class="col-4">
+                                                    <label for="inputPassword6" class="col-form-label">Optional
+                                                        Snapshot</label>
+                                                </div>
+                                                <div class="col-4">
+                                                    <input type="file" name="optionalSnapshot"
+                                                        [(ngModel)]="product.optionalSnapshot"
+                                                        (change)="getLogoUrl($event)" class="form-control"
+                                                        aria-describedby="passwordHelpInline">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <button class="btn btn-success" (click)="append()"><i
+                                                        class="fa fa-plus"></i></button>
+                                            </div>
+                                            <div class="col-4">
+                                                <button class="btn btn-primary" (click)="submitFeesDetail()"
+                                                    (click)="documentDetails.click()">Submit</button>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr class="horizontal-rule">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12 list-text">
+                                                <h6> NOTE: </h6>
+
+                                                <p>1. Roll Number and Mobile number should be unique.</p>
+
+                                                <p>2. Registration is to be completed on university portal status.</p>
+
+                                                <p>3. Import the getting sheet from university and fill the pending
+                                                    data.
+                                                </p>
+
+                                                <p>4. View all the data using coloumn level selectionand filter and
+                                                    sort.
+                                                </p>
+
+                                                <p>5. Update</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                        style="margin-top:50px">
+                        <div class="conatiner ">
+                            <div col="row" style="display: flex; justify-content: center; align-items: center;">
+                                <div class="col-lg-10 col-md-10"
+                                    style="background-color:#f0efef; box-shadow: 0px 0px 8px -4px;">
+                                    <div class="col-lg-12">
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label for="inputPassword6" class="col-form-label">Student Photo</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="file" id="inputPassword6" class="form-control"
+                                                    aria-describedby="passwordHelpInline" name="studentPhoto"
+                                                    [(ngModel)]="formJSON.studentPhoto" (change)="getLogoUrl($event)">
+
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label for="inputPassword6" class="col-form-label">Aadhar Front</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="file" id="inputPassword6" class="form-control"
+                                                    aria-describedby="passwordHelpInline" name="adhaarFront"
+                                                    [(ngModel)]="formJSON.adhaarFront" (change)="getLogoUrl($event)">
+
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label for="inputPassword6" class="col-form-label">Aadhar Back</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="file" id="inputPassword6" class="form-control"
+                                                    aria-describedby="passwordHelpInline" name="adhaarBack"
+                                                    [(ngModel)]="formJSON.adhaarBack" (change)="getLogoUrl($event)">
+
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label for="inputPassword6" class="col-form-label">Photo 10th</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="file" id="inputPassword6" class="form-control"
+                                                    aria-describedby="passwordHelpInline" name="tenthCertificate"
+                                                    [(ngModel)]="formJSON.tenthCertificate"
+                                                    (change)="getLogoUrl($event)">
+
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label for="inputPassword6" class="col-form-label">Another
+                                                    Document</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="file" id="inputPassword6" class="form-control"
+                                                    aria-describedby="passwordHelpInline" name="anotherPhoto"
+                                                    [(ngModel)]="formJSON.anotherPhoto" (change)="getLogoUrl($event)">
+
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+                                            <div class="col-4">
+                                                <label for="inputPassword6" class="col-form-label">Signature</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="file" id="inputPassword6" class="form-control"
+                                                    aria-describedby="passwordHelpInline" name="signature"
+                                                    [(ngModel)]="formJSON.signature" (change)="getLogoUrl($event)">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            style="margin-top: 30px;">
+
+                                            <div class="col-4">
+                                                <button class="btn btn-primary" (click)="submitDocumentData()"
+                                                    (click)="studentDetails.click()">Submit</button>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <hr class="horizontal-rule">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12 list-text">
+                                                <h6> NOTE: </h6>
+
+                                                <p>1. Roll Number and Mobile number should be unique.</p>
+
+                                                <p>2. Registration is to be completed on university portal status.</p>
+
+                                                <p>3. Import the getting sheet from university and fill the pending
+                                                    data.
+                                                </p>
+
+                                                <p>4. View all the data using coloumn level selectionand filter and
+                                                    sort.
+                                                </p>
+
+                                                <p>5. Update</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br><br><br><br>
+
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+<script src="https://code.jquery.com/jquery-3.6.2.min.js"
+    integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+
+
+<script>
+
+    $('#button').click(function () {
+
+        $("input[type='file']").trigger('click');
+
+    })
+
+
+    $("input[type='file']").change(function () {
+
+        $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
+
+    })
+
+    const d = new Date();
+document.getElementById("nowdate").value = d;
+
+   
+
+</script>
+<!-- <app-footer></app-footer> -->
