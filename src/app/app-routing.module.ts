@@ -4,6 +4,7 @@ import { AdmissionDetailComponent } from './admission-detail/admission-detail.co
 import { AdmissionComponent } from './admission/admission.component';
 import { AdmissiontableComponent } from './admissiontable/admissiontable.component';
 import { CounsellordetailComponent } from './counsellordetail/counsellordetail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './jwtservice/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { CounsellorService } from './serivces/counsellor.service';
@@ -14,7 +15,9 @@ const routes: Routes = [
   {path:'counsellorName',component:AdmissiontableComponent,canActivate:[AuthGuard]},
   {path:'admission',component:AdmissionDetailComponent,canActivate:[AuthGuard]},
   {path:'adm',component:AdmissionComponent,canActivate:[AuthGuard]},
+  {path: 'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
   {path:'',component:LoginComponent}
+
   
 ];
 

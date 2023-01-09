@@ -65,9 +65,8 @@ import { BasicAuthHtppInterceptorService } from './jwtservice/basic-auth-interce
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatSelectSearchModule } from 'mat-select-search';
 import { DatePipe } from '@angular/common';
-
-
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -80,7 +79,10 @@ import { DatePipe } from '@angular/common';
     SidebarComponent,
     NavbarComponent,
     AdmissionDetailComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+   
+    
   ],
   imports: [
     BrowserModule,
@@ -143,13 +145,11 @@ import { DatePipe } from '@angular/common';
     MatSelectModule,
     MatCardModule,
     MatSelectSearchModule,
-    DatePipe
-
-    
-    
-    
+    DatePipe,
+    NgChartsModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: BasicAuthHtppInterceptorService, multi:true},DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

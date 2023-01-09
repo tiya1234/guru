@@ -137,7 +137,7 @@ export class AdmissionComponent {
     aadharvalidationmassage:any;
     validateAadharNmber(){
       let value = this.formJSON.aadhar.toString();
-      if(value.length != 0 && value.length<14){
+      if(value.length != 0 && value.length<16){
         this.isaadharerror = true
       }
       else{

@@ -1,0 +1,198 @@
+<app-navbar></app-navbar>
+
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="dashboard">
+  </div>
+  &nbsp;
+
+  <!-- First slot -->
+  <div class="container-fluid">
+    <div class="main1">
+      <div class="box1">
+          <img class="graph_img mt-4" src="/assets/line-chart.png" alt="">
+        <span class="bar_line1">New Admission</span>
+         <p class="paragraph"><b>50,000</b></p>
+      </div>
+      <div class="box1">
+        <img class="graph_img mt-4" src="/assets/line-chart.png" alt="">
+        <span class="bar_line2">Fees Paid Students</span>
+        <p class="paragraph"><b>40,000</b></p>
+      </div>
+      <div class="box1">
+        <img class="graph_img mt-4" src="/assets/line-chart.png" alt="">
+        <span class="bar_line3"> Update Admission</span>
+        <p class="paragraph"><b>10,000</b></p>
+      </div>
+      <div class="box1">
+        <img class="graph_img mt-4" src="/assets/line-chart.png" alt="">
+        <span class="bar_line4">Adding Students</span>
+        <p class="paragraph"><b>10,000</b></p>
+      </div>
+  </div>
+  </div>
+
+  <!-- Second Slot-->
+  <div class="container">
+    <div class="main2">
+      <div class="second_first_card">
+        <h4 class=" new_adm ">New Admission</h4> 
+        <canvas baseChart id="admission_chart" [data]="barChartData" [options]="barChartOptions" [plugins]="barChartPlugins"
+        [legend]="barChartLegend" [type]="'bar'">
+      </canvas>
+      </div>
+      <div class="second_first_card">
+        <h4 class="total_adm"> Total Admission </h4>
+        <canvas baseChart id="total_adm_chart" [type]="'line'" [data]="lineChartData" [options]="lineChartOptions"
+        [legend]="lineChartLegend">
+      </canvas>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Third Slot -->
+
+  <div class="container-fluid">
+    <div class="main3">
+      <div class="table_sec">
+        <h4 class="mt-2"><b>Unpaid Student Fees</b></h4>
+        <h5 class="mt-2 table_second_line">You Have 456 Contacts</h5>
+        <table>
+          <thead>
+          <tr>
+            <th>Check box</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Document</th>
+            <th>Fees Paid</th>
+            <th>Email</th>
+            <th>Details</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><i class="fa-solid fa-square-check"></i></td>
+            <td>Raj</td>
+            <td>BCA</td>
+            <td>Pending</td>
+            <td>Compleated</td>
+            <td>Raj234@gmail.com</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-square-check"></i></td>
+            <td>Priya</td>
+            <td>BCA</td>
+            <td>Compleated</td>
+            <td>Pending</td>
+            <td>Priya@gmail.com</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-square-check"></i></td>
+            <td>Jay</td>
+            <td>BCA</td>
+            <td>Pending</td>
+            <td>Compleated</td>
+            <td>Jay@gmail.com</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-square-check"></i></td>
+            <td>Sapna</td>
+            <td>BCA</td>
+            <td>Compleated</td>
+            <td>Pending</td>
+            <td>Sapna@gmail.com</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-square-check"></i></td>
+            <td>John</td>
+            <td>BCA</td>
+            <td>Pending</td>
+            <td>Compleated</td>
+            <td>John@gmail.com</td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+  </div>
+    
+
+
+
+  <!-- Last slot -->
+  <div class="container-fluid ">
+  <div class="main4">
+  <div class="last_f_card">
+    <div class="mt-4"><b>Message Students</b></div>
+    <div class="mt-5 first_message">
+      <div class="d-flex">
+        <div class="mt-2 inside_message"><b>Raj</b></div>
+        <div class="mt-2 inside_message2_raj"><b>15 minutes ago</b></div>
+      </div>
+      <div class="short_message"> Short message goes here</div>
+    </div>
+    <div class="mt-2 second_message">
+      <div class="d-flex">
+        <div class="mt-2 inside_message"><b>Priya</b></div>
+        <div class="mt-2  inside_message2_priya"><b>15 minutes ago</b></div>
+      </div>
+      <div class="short_message"> Short message goes here</div>
+    </div>
+    <div class="mt-2 third_message">
+      <div class="d-flex">
+        <div class="mt-2 inside_message"><b>Sapna</b></div>
+        <div class="mt-2  inside_message2_sapna"><b>15 minutes ago</b></div>
+      </div>
+      <div class="short_message"> Short message goes here</div>
+    </div>
+  </div>
+  <div class="last_f_card">
+    <h4 class="mt-2"><b>College Performance</b></h4>
+    <mat-card class="demo-inline-calendar-card">
+      <mat-calendar [(selected)]="selected"></mat-calendar>
+    </mat-card>
+  </div>
+  </div>
+  </div>
+    <!-- <div class="row">
+      <div class="col-lg-5 last_first_card">
+        <div class="mt-4"><b>Message Students</b></div>
+        <div class="mt-4 first_message">
+          <div class="d-flex">
+            <div class="mt-2 inside_message"><b>Raj</b></div>
+            <div class="mt-2 inside_message2"><b>15 minutes ago</b></div>
+          </div>
+          <div class="short_message"> Short message goes here</div>
+        </div>
+        <div class="mt-2 second_message">
+          <div class="d-flex">
+            <div class="mt-2 inside_message"><b>Priya</b></div>
+            <div class="mt-2  inside_message2"><b>15 minutes ago</b></div>
+          </div>
+          <div class="short_message"> Short message goes here</div>
+        </div>
+        <div class="mt-2 third_message">
+          <div class="d-flex">
+            <div class="mt-2 inside_message"><b>Sapna</b></div>
+            <div class="mt-2  inside_message2"><b>15 minutes ago</b></div>
+          </div>
+          <div class="short_message"> Short message goes here</div>
+        </div>
+      </div>
+      <div class="col-lg-5 last_second_card">
+        <div class=" d-flex">
+          <div class="mt-2"><b>College Performance</b></div>
+        </div>
+        <div></div>
+        <mat-card class="demo-inline-calendar-card">
+          <mat-calendar [(selected)]="selected"></mat-calendar>
+        </mat-card>
+      </div>
+    </div> -->
+ 

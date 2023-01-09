@@ -1,0 +1,224 @@
+
+.main {
+    margin-left: 236px;
+    padding: 0px 10px;
+}
+.dashboard{
+  margin-top: 100px;
+}
+
+// .first-sec{
+//     background-color: rgb(247, 246, 246);
+//     height: 115px;
+//     border-radius: 5px 10px 10px 5px;
+//     // width: 20%;
+//     // margin-left: 28px;
+//     // margin-right: 2px;
+//     flex: 2;
+//     border: none;
+//     box-shadow: 12px 0px 15px -8px;
+//   }
+
+  .paragraph{
+    text-align: center;
+    color: black;
+  }
+
+  .box1{
+    background-color: rgb(247, 246, 246);
+    border-radius: 5px 10px 10px 5px;
+    box-shadow: 12px 0px 15px -8px;
+    flex: 1;
+    border: none;
+    margin-left: 44px;
+  }
+  .main1{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .graph_img{
+    height: 50px;
+    padding-left: 13px;
+    padding-top: 3px;
+  }
+
+  .bar_line1{
+    color: red;
+    padding-left: 14px;
+  }
+
+  .bar_line2{
+    color: green;
+    padding-left: 14px;
+  }
+
+  .bar_line3{
+    color: blue;
+    padding-left: 14px;
+  }
+
+  .bar_line4{
+    color: purple;
+    padding-left: 14px;
+  }
+
+  b{
+    padding-left: 39px;
+  }
+
+  .main2{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #admission_chart{
+    flex: 1;
+    width: 93%;
+  }
+
+  #total_adm_chart{
+     flex: 1;
+     width: 93%;
+  }
+
+  .new_adm{
+    background-color: rgb(1, 1, 82);
+    color: white;
+    border-radius: 5px 5px 0px 0px;
+    text-align: center;
+  }
+
+  .total_adm{
+    background-color: rgb(1, 1, 82);
+    color: white;
+    border-radius: 5px 5px 0px 0px;
+    text-align: center;
+  }
+
+  .second_first_card{
+    margin-top: 50px;
+    border-radius: 5px 10px 10px 5px;
+    box-shadow: 1px 0px 15px -8px;
+    flex: 2;
+    margin-left: 12px;
+  }
+
+
+  .main3{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .table_second_line{
+    color: rgb(190, 190, 190);
+    padding-left: 52px;
+  }
+  .table_sec{
+    margin-top: 50px;
+    background-color:  rgb(247, 246, 246);
+    height: 350px;
+    border-radius: 5px 10px 10px 5px;
+    border: none;
+    box-shadow: 12px 0px 15px -8px;
+    flex: 2;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .table_head{
+    text-align: center;
+  }
+  td{
+    text-align: center;
+  }
+  th{
+    text-align: center;
+  }
+
+  .main4{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .last_first_card{
+    margin-top: 50px;
+    height: 342px;
+    border-radius: 5px 10px 10px 5px;
+    box-shadow: 1px 0px 15px -8px;
+    flex: 2;
+  }
+
+
+  .last_f_card{
+    margin-top: 50px;
+    border-radius: 5px 10px 10px 5px;
+    box-shadow: 1px 0px 15px -8px;
+    margin-left: 13px;
+    flex: 2;
+  }
+
+  .last_second_card{
+    margin-top: 50px;
+    margin-left: 21px;
+    border-radius: 5px 10px 10px 5px;
+    box-shadow: 1px 0px 15px -8px;
+    flex: 2;
+  }
+
+
+  .inside_message2_raj{
+    padding-left: 263px;
+  }
+
+  .inside_message2_priya{
+    padding-left: 250px;
+  }
+
+  .inside_message2_sapna{
+    padding-left: 244px;
+  }
+
+  .short_message{
+    padding-left: 38px;
+  }
+
+
+  .first_message{
+    border-radius: 5px 10px 10px 5px;
+    box-shadow: 7px 0px 15px -7px;
+    height: 62px;
+  }
+
+  .second_message{
+    border-radius: 5px 10px 10px 5px;
+    box-shadow: 7px 0px 15px -7px;
+    height: 62px;
+  }
+
+  .third_message{
+    border-radius: 5px 10px 10px 5px;
+    box-shadow: 7px 0px 15px -7px;
+    height: 62px;
+  }
+
+  
+  
+  .demo-inline-calendar-card {
+    width: 57% !important;
+    margin-top: 9px !important;
+    margin-left: 99px !important;
+  }
+
+  
+ 
